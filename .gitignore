@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+/src/assets/img/old-men-on-step/old-men-on-step.psd
+/src/assets/img/old-men-on-step/test.psd
