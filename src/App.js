@@ -27,7 +27,7 @@ function App() {
               <Container>
                 <Row className="flex-row justify-center">
                   <Col>
-                    <Pic pic={pics.testPic} />
+                    <Pic pic={pics.oldMenOnStep} />
                   </Col>
                 </Row>
               </Container>

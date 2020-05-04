@@ -7,6 +7,7 @@ const oldMenOnStep = {
   picMaster: picMaster,
   dimX: 2400,
   dimY: 1800,
+  parallaxDistance: 30,
 };
 
 export default oldMenOnStep;

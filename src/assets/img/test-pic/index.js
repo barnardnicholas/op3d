@@ -10,6 +10,7 @@ const testPic = {
   picMaster: picMaster,
   dimX: 1000,
   dimY: 1000,
+  parallaxDistance: 40,
 };
 
 export default testPic;
