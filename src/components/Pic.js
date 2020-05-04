@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import SlimHeader from "./SlimHeader";
 import $ from "jquery";
 
 export default class Pic extends Component {
@@ -19,15 +20,21 @@ export default class Pic extends Component {
     centerY: 0,
     perspectiveX: 0,
     perspectiveY: 0,
+    effectEnabled: false,
   };
 
   handleMouseMove = (event) => {
     // Define center of frame
     let centerX = Math.floor(this.state.frameWidth / 2);
     let centerY = Math.floor(this.state.frameHeight / 2);
+
     // Define mouse coords within picture frame
-    const frameOffsetTop = $(".picture-frame").offset().top;
-    const frameOffsetLeft = $(".picture-frame").offset().left;
+    let frameOffsetTop = 0;
+    let frameOffsetLeft = 0;
+    if ($(".picture-frame").offset()) {
+      frameOffsetTop = $(".picture-frame").offset().top;
+      frameOffsetLeft = $(".picture-frame").offset().left;
+    }
     let frameX = Math.floor(event.pageX - frameOffsetLeft);
     let frameY = Math.floor(event.pageY - frameOffsetTop);
     if (frameX < 0) frameX = 0;
@@ -44,11 +51,10 @@ export default class Pic extends Component {
       offsetX * (this.state.parallaxDistance / (this.state.frameWidth / 2)) * -1
     );
     let mirrorOffsetY = Math.floor(
-      offsetY * (this.state.parallaxDistance / (this.state.frameWidth / 2)) * -1
+      offsetY * (this.state.parallaxDistance / (this.state.frameWidth / 2))
     );
 
     // Define Perspective angle
-
     let perspectiveY =
       this.state.perspectiveAngle *
       (this.state.mirrorOffsetX / this.state.parallaxDistance);
@@ -56,20 +62,23 @@ export default class Pic extends Component {
       this.state.perspectiveAngle *
       (this.state.mirrorOffsetY / this.state.parallaxDistance);
 
-    this.setState({
-      mouseX: event.pageX,
-      mouseY: event.pageY,
-      frameX,
-      frameY,
-      centerX,
-      centerY,
-      offsetX,
-      offsetY,
-      mirrorOffsetX,
-      mirrorOffsetY,
-      perspectiveX,
-      perspectiveY,
-    });
+    // Only execute if effectEnabled is true
+    if (this.state.effectEnabled) {
+      this.setState({
+        mouseX: event.pageX,
+        mouseY: event.pageY,
+        frameX,
+        frameY,
+        centerX,
+        centerY,
+        offsetX,
+        offsetY,
+        mirrorOffsetX,
+        mirrorOffsetY,
+        perspectiveX,
+        perspectiveY,
+      });
+    }
   };
 
   calculateFrameDimensions = () => {
@@ -92,7 +101,10 @@ export default class Pic extends Component {
   };
 
   setParallaxDistance = () => {
-    this.setState({ parallaxDistance: this.props.pic.parallaxDistance });
+    this.setState({
+      parallaxDistance: this.props.pic.parallaxDistance,
+      perspectiveAngle: this.props.pic.perspectiveAngle,
+    });
   };
 
   displayDebug = () => {
@@ -123,43 +135,46 @@ export default class Pic extends Component {
       transform: `rotateX(${this.state.perspectiveX}deg) rotateY(${this.state.perspectiveY}deg)`,
     };
     return (
-      <div className="perspective-container">
-        <div className="picture-frame" style={frameStyling}>
-          <div className="img-container">
-            {pic.img.map((img, idx) => {
-              // Calculate offset per-image
-              let thisOffsetX =
-                (this.state.mirrorOffsetX / pic.img.length) *
-                (pic.img.length - idx);
-              let thisOffsetY =
-                (this.state.mirrorOffsetY / pic.img.length) *
-                (pic.img.length - idx);
-              return (
-                <div
-                  key={idx}
-                  className="pic-slice"
-                  style={{
-                    position: "absolute",
-                    top: `${thisOffsetY - this.state.parallaxDistance}px`,
-                    left: `${thisOffsetX - this.state.parallaxDistance}px`,
-                  }}
-                >
-                  <img
-                    src={img}
-                    width={
-                      this.state.frameWidth + this.state.parallaxDistance * 2
-                    }
-                    height={
-                      this.state.frameHeight + this.state.parallaxDistance * 2
-                    }
-                  />
-                </div>
-              );
-            })}
+      <>
+        <SlimHeader />
+        <div className="perspective-container">
+          <div className="picture-frame" style={frameStyling}>
+            <div className="img-container">
+              {pic.img.map((img, idx) => {
+                // Calculate offset per-image
+                let thisOffsetX =
+                  (this.state.mirrorOffsetX / pic.img.length) *
+                  (pic.img.length - idx);
+                let thisOffsetY =
+                  (this.state.mirrorOffsetY / pic.img.length) *
+                  (pic.img.length - idx);
+                return (
+                  <div
+                    key={idx}
+                    className="pic-slice"
+                    style={{
+                      position: "absolute",
+                      top: `${thisOffsetY - this.state.parallaxDistance}px`,
+                      left: `${thisOffsetX - this.state.parallaxDistance}px`,
+                    }}
+                  >
+                    <img
+                      src={img}
+                      width={
+                        this.state.frameWidth + this.state.parallaxDistance * 2
+                      }
+                      height={
+                        this.state.frameHeight + this.state.parallaxDistance * 2
+                      }
+                    />
+                  </div>
+                );
+              })}
+            </div>
+            {this.props.debug ? this.displayDebug() : null}
           </div>
-          {this.props.debug ? this.displayDebug() : null}
         </div>
-      </div>
+      </>
     );
   }
 
@@ -167,8 +182,16 @@ export default class Pic extends Component {
     const frameCenter = $(".frame-center");
     this.setParallaxDistance();
     this.calculateFrameDimensions();
+    this.setState({ effectEnabled: true });
     $(window).mousemove((event) => {
       this.handleMouseMove(event);
+    });
+  }
+
+  componentWillUnmount() {
+    this.setState({ effectEnabled: false });
+    $(document).off("mousemove", () => {
+      console.log("Mouse events off");
     });
   }
 }

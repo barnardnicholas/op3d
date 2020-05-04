@@ -7,6 +7,7 @@ import { ContextProvider, AppContext } from "./Context";
 // Import Components
 import Pic from "./components/Pic";
 import PerspectiveTest from "./components/PerspectiveTest";
+import Home from "./components/Home";
 
 // Import Styling
 import "./App.css";
@@ -22,16 +23,11 @@ function App() {
         {(context) => {
           return (
             <div className="App">
-              <header>
-                <h1 className="aviera-bold">Old Photos 3D</h1>
-                <p className="opensans-light">
-                  Parallax Experiment by Nick Barnard
-                </p>
-              </header>
               <Container>
                 <Row className="flex-row justify-center">
                   <Col>
                     <Router>
+                      <Home path="/" />
                       <PerspectiveTest path="/utils/perspective-test" />
                       <Pic pic={pics.testPic} path="/pics/test-pic" />
                       <Pic pic={pics.oldMenOnStep} path="/pics/old-men" />
