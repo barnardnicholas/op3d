@@ -16,6 +16,16 @@ export default function Nav() {
             <h3>Old Men on Steps</h3>
           </Link>
         </Row>
+        <Row>
+          <Link to="/pics/mountainside">
+            <h3>Mountainside</h3>
+          </Link>
+        </Row>
+        <Row>
+          <Link to="/pics/old-teapots">
+            <h3>Old Teapots</h3>
+          </Link>
+        </Row>
       </Container>
     </nav>
   );

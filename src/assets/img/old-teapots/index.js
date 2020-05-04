@@ -1,0 +1,14 @@
+import picMaster from "./master.png";
+import pic00 from "./00.png";
+import pic01 from "./01.png";
+
+const oldTeapots = {
+  img: [pic00, pic01],
+  picMaster: picMaster,
+  dimX: 4482,
+  dimY: 3528,
+  parallaxDistance: 20,
+  perspectiveAngle: 8,
+};
+
+export default oldTeapots;

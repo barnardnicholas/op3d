@@ -29,8 +29,10 @@ function App() {
                     <Router>
                       <Home path="/" />
                       <PerspectiveTest path="/utils/perspective-test" />
-                      <Pic pic={pics.testPic} path="/pics/test-pic" />
+                      <Pic debug pic={pics.testPic} path="/pics/test-pic" />
                       <Pic pic={pics.oldMenOnStep} path="/pics/old-men" />
+                      <Pic pic={pics.mountainside} path="/pics/mountainside" />
+                      <Pic pic={pics.oldTeapots} path="/pics/old-teapots" />
                     </Router>
                   </Col>
                 </Row>
