@@ -59,10 +59,6 @@ export default class Pic extends Component {
   };
 
   calculateFrameDimensions = () => {
-    // const { dimX, dimY } = {
-    //   dimX: 1352,
-    //   dimY: 850,
-    // };
     const { dimX, dimY } = this.props.pic;
     let frameWidth;
     let frameHeight;
