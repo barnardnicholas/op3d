@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import pics from "../assets/img/index";
 import $ from "jquery";
 
 export default class Pic extends Component {
