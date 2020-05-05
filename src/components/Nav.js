@@ -26,6 +26,11 @@ export default function Nav() {
             <h3>Old Teapots</h3>
           </Link>
         </Row>
+        <Row>
+          <Link to="/pics/pine-branch">
+            <h3>Pine Branch</h3>
+          </Link>
+        </Row>
       </Container>
     </nav>
   );

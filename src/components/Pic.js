@@ -166,6 +166,7 @@ export default class Pic extends Component {
                       height={
                         this.state.frameHeight + this.state.parallaxDistance * 2
                       }
+                      alt={`Image Layer ${idx}`}
                     />
                   </div>
                 );

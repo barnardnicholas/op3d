@@ -33,6 +33,7 @@ function App() {
                       <Pic pic={pics.oldMenOnStep} path="/pics/old-men" />
                       <Pic pic={pics.mountainside} path="/pics/mountainside" />
                       <Pic pic={pics.oldTeapots} path="/pics/old-teapots" />
+                      <Pic pic={pics.pineBranch} path="/pics/pine-branch" />
                     </Router>
                   </Col>
                 </Row>

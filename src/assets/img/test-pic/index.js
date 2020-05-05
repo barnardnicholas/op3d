@@ -8,9 +8,11 @@ import pic04 from "./04.png";
 const testPic = {
   img: [pic00, pic01, pic02, pic03, pic04],
   picMaster: picMaster,
+  thumb: picMaster,
   dimX: 1000,
   dimY: 1000,
   parallaxDistance: 40,
+  perspectiveAngle: 8,
 };
 
 export default testPic;
