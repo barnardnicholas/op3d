@@ -6,6 +6,8 @@ import pic02 from "./02_sm.png";
 import pic03 from "./03_sm.png";
 
 const mountainside = {
+  name: "Mountainside",
+  path: "/mountainside",
   img: [pic00, pic01, pic02, pic03],
   picMaster: picMaster,
   thumb: thumb,

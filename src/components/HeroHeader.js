@@ -12,8 +12,8 @@ export default function HeroHeader() {
               className="hero-logo"
               src={logo}
               alt="OP3D Logo"
-              width="300px"
-              height="auto"
+              width="auto"
+              height="180"
             />
           </Col>
           <Col>

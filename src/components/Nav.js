@@ -1,35 +1,36 @@
 import React from "react";
+import pics from "../assets/img/index";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "@reach/router";
 
 export default function Nav() {
+  const picsKeys = Object.keys(pics);
   return (
     <nav>
-      <Container>
+      <Container className="flex-row justify-center">
         <Row>
-          <Link to="/pics/test-pic">
-            <h3>Test Pic</h3>
-          </Link>
-        </Row>
-        <Row>
-          <Link to="/pics/old-men">
-            <h3>Old Men on Steps</h3>
-          </Link>
-        </Row>
-        <Row>
-          <Link to="/pics/mountainside">
-            <h3>Mountainside</h3>
-          </Link>
-        </Row>
-        <Row>
-          <Link to="/pics/old-teapots">
-            <h3>Old Teapots</h3>
-          </Link>
-        </Row>
-        <Row>
-          <Link to="/pics/pine-branch">
-            <h3>Pine Branch</h3>
-          </Link>
+          <Container>
+            {picsKeys.map((pic) => {
+              return (
+                <Link to={`/pics${pics[pic].path}`}>
+                  <Row className="flex-row">
+                    <Col>
+                      <img
+                        src={pics[pic].thumb}
+                        alt={pics[pic].name}
+                        height="80"
+                        with="auto"
+                        style={{ padding: "16px" }}
+                      />
+                    </Col>
+                    <Col>
+                      <h3>{pics[pic].name}</h3>
+                    </Col>
+                  </Row>
+                </Link>
+              );
+            })}
+          </Container>
         </Row>
       </Container>
     </nav>

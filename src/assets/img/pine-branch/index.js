@@ -4,6 +4,8 @@ import pic00 from "./00_sm.png";
 import pic01 from "./01_sm.png";
 
 const pineBranch = {
+  name: "Pine Branch",
+  path: "/pine-branch",
   img: [pic00, pic01],
   picMaster: picMaster,
   thumb: thumb,

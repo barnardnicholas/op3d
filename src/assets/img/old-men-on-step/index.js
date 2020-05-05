@@ -4,6 +4,8 @@ import pic00 from "./00_sm.png";
 import pic01 from "./01_sm.png";
 
 const oldMenOnStep = {
+  name: "Old Men On Step",
+  path: "/old-men",
   img: [pic00, pic01],
   picMaster: picMaster,
   thumb: thumb,

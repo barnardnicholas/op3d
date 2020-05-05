@@ -7,6 +7,9 @@ export default function Home() {
     <>
       <main>
         <HeroHeader />
+        <section>
+          <p>Desktop Only - move your mouse to tilt the photographs</p>
+        </section>
         <Nav />
       </main>
     </>

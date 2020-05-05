@@ -19,6 +19,9 @@ a:visited {
   text-align: center;
   font-family: "Open Sans", sans-serif;
 }
+header {
+  z-index: 110;
+}
 
 /* ---------- Typography ---------- */
 .aviera-light {
@@ -151,6 +154,7 @@ a:visited {
 }
 .hero-title {
   font-size: 5em;
+  margin: 16px;
 }
 .picture-frame {
   /* border: 1px solid; */

@@ -48,7 +48,7 @@ export default class Pic extends Component {
 
     // Define max parallax offset based on parallaxDistance
     let mirrorOffsetX = Math.floor(
-      offsetX * (this.state.parallaxDistance / (this.state.frameWidth / 2)) * -1
+      offsetX * (this.state.parallaxDistance / (this.state.frameWidth / 2))
     );
     let mirrorOffsetY = Math.floor(
       offsetY * (this.state.parallaxDistance / (this.state.frameWidth / 2))
@@ -144,7 +144,8 @@ export default class Pic extends Component {
                 // Calculate offset per-image
                 let thisOffsetX =
                   (this.state.mirrorOffsetX / pic.img.length) *
-                  (pic.img.length - idx);
+                  (pic.img.length - idx) *
+                  -1;
                 let thisOffsetY =
                   (this.state.mirrorOffsetY / pic.img.length) *
                   (pic.img.length - idx);

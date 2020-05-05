@@ -6,6 +6,8 @@ import pic03 from "./03.png";
 import pic04 from "./04.png";
 
 const testPic = {
+  name: "Test Picture (Debug)",
+  path: "/test-pic",
   img: [pic00, pic01, pic02, pic03, pic04],
   picMaster: picMaster,
   thumb: picMaster,
