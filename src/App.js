@@ -42,7 +42,10 @@ class App extends Component {
                 <SlimHeader toggleHelp={this.toggleHelp} />
                 <Container className="content">
                   <Row className="flex-row justify-center">
-                    <Col>
+                    <Col
+                      className="flex-col justify-center"
+                      style={{ height: "70vh" }}
+                    >
                       <Router>
                         <Home path="/" />
                         <Pic

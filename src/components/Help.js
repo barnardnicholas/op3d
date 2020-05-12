@@ -27,7 +27,7 @@ export default function Help({ toggleHelp }) {
                     target="_blank"
                   >
                     https://github.com/barnardnicholas/op3d
-                  </a>{" "}
+                  </a>
                 </p>
               </section>
             </Col>
@@ -42,6 +42,28 @@ export default function Help({ toggleHelp }) {
                 <p>
                   <strong>Mobile users:</strong> Touch & drag the photo to tilt
                   in 3D
+                </p>
+              </section>
+            </Col>
+            <Col>
+              <section>
+                <h4>Attribution</h4>
+                <p>
+                  <strong>Photographs:</strong>{" "}
+                  <a href="https://unsplash.com" target="_blank">
+                    https://unsplash.com
+                  </a>
+                  <br />
+                  <strong>Photographs:</strong>{" "}
+                  <a href="https://nypl.getarchive.net" target="_blank">
+                    https://nypl.getarchive.net
+                  </a>
+                </p>
+                <p>
+                  <strong>Textures:</strong>{" "}
+                  <a href="https://www.photoshopsupply.com" target="_blank">
+                    https://www.photoshopsupply.com
+                  </a>
                 </p>
               </section>
             </Col>
