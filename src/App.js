@@ -6,10 +6,10 @@ import { ContextProvider, AppContext } from "./Context";
 
 // Import Components
 import Pic from "./components/Pic";
-import PerspectiveTest from "./components/PerspectiveTest";
 import Home from "./components/Home";
 import SlimHeader from "./components/SlimHeader";
 import Nav from "./components/Nav";
+import Help from "./components/Help";
 
 // Import Styling
 import "./App.css";
@@ -17,14 +17,16 @@ import { Container, Row, Col } from "react-bootstrap";
 
 // Import image data
 import pics from "./assets/img/index";
+const picsKeys = Object.keys(pics);
 
 class App extends Component {
   state = {
-    pic: pics.oldMenOnStep,
+    helpShowing: false,
   };
+  changePic = (pic) => {};
 
-  changePic = (pic) => {
-    this.setState({ pic: pic });
+  toggleHelp = () => {
+    this.setState({ helpShowing: !this.state.helpShowing });
   };
 
   render() {
@@ -34,27 +36,52 @@ class App extends Component {
           {(context) => {
             return (
               <div className="App">
-                <SlimHeader />
-                <Container style={{ marginTop: "130px" }}>
+                {this.state.helpShowing ? (
+                  <Help toggleHelp={this.toggleHelp} />
+                ) : null}
+                <SlimHeader toggleHelp={this.toggleHelp} />
+                <Container className="content">
                   <Row className="flex-row justify-center">
                     <Col>
                       <Router>
-                        <PerspectiveTest path="/utils/perspective-test" />
-                        <Pic debug pic={pics.testPic} path="/pics/test-pic" />
-                        <Pic pic={pics.oldMenOnStep} path="/pics/old-men" />
+                        <Home path="/" />
+                        <Pic
+                          pic={pics.op3dLogo}
+                          path="/pics/op3d-logo"
+                          shadow={false}
+                          border={false}
+                        />
+                        <Pic
+                          pic={pics.oldMenOnStep}
+                          path="/pics/old-men"
+                          shadow={true}
+                          border={true}
+                        />
                         <Pic
                           pic={pics.mountainside}
                           path="/pics/mountainside"
+                          shadow={true}
+                          border={true}
                         />
-                        <Pic pic={pics.oldTeapots} path="/pics/old-teapots" />
-                        <Pic pic={pics.pineBranch} path="/pics/pine-branch" />
+                        <Pic
+                          pic={pics.oldTeapots}
+                          path="/pics/old-teapots"
+                          shadow={true}
+                          border={true}
+                        />
+                        <Pic
+                          pic={pics.pineBranch}
+                          path="/pics/pine-branch"
+                          shadow={true}
+                          border={true}
+                        />
                       </Router>
 
                       {/* <Pic pic={this.state.pic} /> */}
-                      <Nav pics={pics} changePic={this.changePic} />
                     </Col>
                   </Row>
                 </Container>
+                <Nav pics={pics} changePic={this.changePic} />
               </div>
             );
           }}

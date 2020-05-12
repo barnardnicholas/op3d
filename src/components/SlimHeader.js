@@ -1,25 +1,27 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "@reach/router";
-import logo from "../assets/site-brand/op3d-logo-512.png";
 
-export default function SlimHeader() {
+export default function SlimHeader({ toggleHelp }) {
   return (
     <header className="slim-header">
       <Container fluid>
-        <Row className="flex-row justify-center">
+        <Row className="flex-row justify-space-between">
           <Col xs={2}>
-            <img src={logo} alt="Home" height="80px" width="auto" />
+            {/* <img src={logo} alt="Home" height="80px" width="auto" /> */}
+            <div className="slim-logo"></div>
           </Col>
           <Col xs={8} className="flex-row justify-center">
             <div className="w-100">
               <h1 className="aviera-bold">Old Photos 3D</h1>
-              <p className="opensans-light">
-                Parallax Experiment by Nick Barnard
+              <p className="slim-subtitle opensans-light">
+                Experimental 3D Photo Viewer
               </p>
             </div>
           </Col>
-          <Col xs={2}></Col>
+          <Col xs={2}>
+            <div className="slim-help" onClick={toggleHelp}></div>
+          </Col>
         </Row>
       </Container>
     </header>

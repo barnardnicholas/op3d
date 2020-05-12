@@ -6,7 +6,7 @@
 
 body {
   background-color: #252525;
-  color: #ffffff;
+  color: #fff8d9;
   overflow: hidden;
 }
 
@@ -18,6 +18,7 @@ a:visited {
 .App {
   text-align: center;
   font-family: "Open Sans", sans-serif;
+  height: 100vh;
 }
 header {
   z-index: 110;
@@ -28,12 +29,17 @@ nav {
   bottom: 8px;
   left: 0;
   right: 0;
-  overflow-x: scroll;
-  overflow-y: none !important;
   max-height: 130px;
 }
 h1 {
-  margin: 20px;
+  font-size: 1.1em;
+  margin: 12px;
+  -webkit-text-shadow: 8px 8px 12px 5px rgba(0, 0, 0, 0.5);
+  -moz-text-shadow: 8px 8px 12px 5px rgba(0, 0, 0, 0.5);
+  text-shadow: 8px 8px 12px 5px rgba(0, 0, 0, 0.5);
+}
+p {
+  font-size: 0.6em;
 }
 
 /* ---------- Typography ---------- */
@@ -168,6 +174,42 @@ h1 {
   top: 0;
   left: 0;
   right: 0;
+  height: 80px;
+}
+@keyframes logo-hover {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+.slim-logo,
+.slim-help {
+  width: 48px;
+  height: 48px;
+  background-size: cover;
+  margin: 8px;
+  transform: scale(1);
+  cursor: pointer;
+}
+.slim-logo:hover,
+.slim-help:hover,
+.slim-logo:active,
+.slim-help:active,
+.slim-logo:focus,
+.slim-help:focus {
+  animation: logo-hover 0.3s;
+  transform: scale(1.2);
+}
+.slim-logo {
+  background-image: url(assets/site-brand/op3d-logo-96.png);
+}
+.slim-help {
+  background-image: url(assets/site-brand/op3d-help-96.png);
+}
+.slim-subtitle {
+  margin: 4px;
 }
 .hero-logo {
   padding: 10px 20px;
@@ -175,6 +217,10 @@ h1 {
 .hero-title {
   font-size: 5em;
   margin: 16px;
+}
+.content {
+  padding: 80px 0 100px 0;
+  height: 100%;
 }
 .nav-button {
   margin: 4px;
@@ -185,11 +231,34 @@ h1 {
   padding: 0;
   perspective: 300px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  outline: none;
+}
+@keyframes button-hover {
+  0% {
+    transform: rotateX(-1deg) rotateY(40deg) scale(1);
+  }
+  100% {
+    transform: rotateX(0deg) rotateY(0deg) scale(1.2);
+  }
 }
 .nav-button > img {
   width: 100%;
   height: auto;
+  border: 2px solid #fff8d9;
   transform: rotateX(-1deg) rotateY(40deg);
+  -webkit-box-shadow: 8px 8px 12px 5px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 8px 8px 12px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 8px 8px 12px 5px rgba(0, 0, 0, 0.5);
+}
+.nav-button > img:hover,
+.nav-button > img:active,
+.nav-button > img:focus {
+  animation: button-hover 0.3s;
+  transform: rotateX(0deg) rotateY(0deg) scale(1.2);
 }
 .picture-frame {
   /* border: 1px solid; */
@@ -197,11 +266,15 @@ h1 {
   z-index: 101;
   overflow: hidden;
   transform-style: preserve-3d;
+}
+.picture-frame-shadow {
   -webkit-box-shadow: 15px 15px 23px 5px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 15px 15px 23px 5px rgba(0, 0, 0, 0.5);
   box-shadow: 15px 15px 23px 5px rgba(0, 0, 0, 0.5);
 }
-
+.picture-frame-border {
+  border: 4px solid #fff8d9;
+}
 .frame-center {
   position: absolute;
   top: 50%;
@@ -252,27 +325,99 @@ h1 {
   transform: rotateX(45deg) rotateY(45deg);
   /* perspective: 50px; */
 }
+.help-overlay {
+  z-index: 300;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+}
+.help-blackout {
+  position: fixed;
+  background-color: #000000;
+  opacity: 0.5;
+  width: 100%;
+  height: 100%;
+}
+.help-modal {
+  z-index: 310;
+  position: relative;
+  margin-top: 100px;
+  margin: 60px 16px;
+  padding: 8px 8px 20px 8px;
+  background-color: #000000;
+  border-radius: 0.5em;
+  border: 1px solid;
+}
 
 /* ---------- Responsiveness ---------- */
 
 /* Custom iPhone Portrait */
-@media (min-width: 320px) {
+@media (min-width: 340px) {
+  h1 {
+    font-size: 1.3em;
+  }
+}
+@media (min-width: 390px) {
+  h1 {
+    font-size: 1.5em;
+  }
+  .slim-logo,
+  .slim-help {
+    width: 56px;
+    height: 56px;
+  }
+  .picture-frame-border {
+    border: 6px solid #fff8d9;
+  }
+  .help-modal {
+    margin: 60px 32px;
+  }
 }
 
 /* Bootstrap equivalents */
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
+  h1 {
+    font-size: 2em;
+  }
+  p {
+    font-size: 0.8em;
+  }
+  .slim-logo,
+  .slim-help {
+    width: 60px;
+    height: 60px;
+  }
+  .content {
+    margin: 100px 0 100px 0;
+  }
+  .picture-frame-border {
+    border: 8px solid #fff8d9;
+  }
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
+  .help-modal {
+    margin: 60px 50px;
+  }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+  .help-modal {
+    margin: 60px 100px;
+  }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
+  .help-modal {
+    margin: 60px 250px;
+  }
 }

@@ -13,7 +13,7 @@ const testPic = {
   thumb: picMaster,
   dimX: 1000,
   dimY: 1000,
-  parallaxDistance: 40,
+  parallaxDistance: 20,
   perspectiveAngle: 8,
 };
 
