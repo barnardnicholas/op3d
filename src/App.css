@@ -4,10 +4,10 @@
 
 /* ---------- Normalize ---------- */
 
-body {
+body,
+html {
   background-color: #252525;
   color: #fff8d9;
-  overflow: hidden;
 }
 
 a,
