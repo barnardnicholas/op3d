@@ -9,13 +9,15 @@ export default function SlimHeader({ toggleHelp }) {
         <Row className="flex-row justify-space-between">
           <Col xs={2}>
             {/* <img src={logo} alt="Home" height="80px" width="auto" /> */}
-            <div className="slim-logo"></div>
+            <Link to="/">
+              <div className="slim-logo"></div>
+            </Link>
           </Col>
           <Col xs={8} className="flex-row justify-center">
             <div className="w-100">
               <h1 className="aviera-bold">Old Photos 3D</h1>
               <p className="slim-subtitle opensans-light">
-                Experimental 3D Photo Viewer
+                Experimental Pseudo-3D Photo Viewer
               </p>
             </div>
           </Col>

@@ -11,7 +11,15 @@ export default function Help({ toggleHelp }) {
             <Col>
               <section>
                 <h3 className="aviera-bold">Old Photos 3D</h3>
-                <p>An experimental 3D photo viewer by Nick Barnard</p>
+                <p>
+                  OP3D is an experimental pseudo-3D photo viewer by Nick Barnard
+                </p>
+                <p>
+                  OP3D takes an array of PNG images, arranges them in a stack
+                  and uses jQuery and CSS to offset their positions and apply
+                  perspective warping for each one, based on cursor position
+                  (desktop) or touch-drag(mobile).
+                </p>
                 <p>
                   <strong>Github:</strong>{" "}
                   <a
