@@ -5,13 +5,11 @@ import logo from "../assets/site-brand/op3d-logo-512.png";
 
 export default function SlimHeader() {
   return (
-    <header>
-      <Container>
-        <Row className="flex-row">
+    <header className="slim-header">
+      <Container fluid>
+        <Row className="flex-row justify-center">
           <Col xs={2}>
-            <Link to="/">
-              <img src={logo} alt="Home" height="80px" width="auto" />
-            </Link>
+            <img src={logo} alt="Home" height="80px" width="auto" />
           </Col>
           <Col xs={8} className="flex-row justify-center">
             <div className="w-100">

@@ -81,6 +81,16 @@ export default class Pic extends Component {
     }
   };
 
+  handleDrag = (event) => {
+    // console.dir(event.nativeEvent.touches[0].clientX);
+    // console.dir(event.nativeEvent.touches[0].clientY);
+    const eventProxy = {
+      pageX: event.nativeEvent.touches[0].clientX,
+      pageY: event.nativeEvent.touches[0].clientY,
+    };
+    this.handleMouseMove(eventProxy);
+  };
+
   calculateFrameDimensions = () => {
     const { dimX, dimY } = this.props.pic;
     let frameWidth;
@@ -136,9 +146,14 @@ export default class Pic extends Component {
     };
     return (
       <>
-        <SlimHeader />
         <div className="perspective-container">
-          <div className="picture-frame" style={frameStyling}>
+          <div
+            className="picture-frame"
+            style={frameStyling}
+            onTouchMove={(e) => {
+              this.handleDrag(e);
+            }}
+          >
             <div className="img-container">
               {pic.img.map((img, idx) => {
                 // Calculate offset per-image
@@ -189,6 +204,8 @@ export default class Pic extends Component {
       this.handleMouseMove(event);
     });
   }
+
+  componentDidUpdate() {}
 
   componentWillUnmount() {
     this.setState({ effectEnabled: false });
