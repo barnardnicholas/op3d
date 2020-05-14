@@ -15,8 +15,8 @@ const aircraftCarrier = {
   thumb: thumb,
   dimX: 1280,
   dimY: 1023,
-  parallaxDistance: 40,
-  perspectiveAngle: 16,
+  parallaxDistance: 30,
+  perspectiveAngle: 8,
 };
 
 export default aircraftCarrier;
