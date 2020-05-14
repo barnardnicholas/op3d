@@ -61,6 +61,12 @@ class App extends Component {
                           border={true}
                         />
                         <Pic
+                          pic={pics.aircraftCarrier}
+                          path="/pics/aircraft-carrier"
+                          shadow={true}
+                          border={true}
+                        />
+                        <Pic
                           pic={pics.mountainside}
                           path="/pics/mountainside"
                           shadow={true}
@@ -69,12 +75,6 @@ class App extends Component {
                         <Pic
                           pic={pics.oldTeapots}
                           path="/pics/old-teapots"
-                          shadow={true}
-                          border={true}
-                        />
-                        <Pic
-                          pic={pics.pineBranch}
-                          path="/pics/pine-branch"
                           shadow={true}
                           border={true}
                         />
