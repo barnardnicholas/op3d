@@ -67,14 +67,14 @@ class App extends Component {
                           border={true}
                         />
                         <Pic
-                          pic={pics.mountainside}
-                          path="/pics/mountainside"
+                          pic={pics.railroadWagons}
+                          path="/pics/railroad-wagons"
                           shadow={true}
                           border={true}
                         />
                         <Pic
-                          pic={pics.oldTeapots}
-                          path="/pics/old-teapots"
+                          pic={pics.mountainside}
+                          path="/pics/mountainside"
                           shadow={true}
                           border={true}
                         />
