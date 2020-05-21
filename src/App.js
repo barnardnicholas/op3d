@@ -73,8 +73,8 @@ class App extends Component {
                           border={true}
                         />
                         <Pic
-                          pic={pics.mountainside}
-                          path="/pics/mountainside"
+                          pic={pics.alpineView}
+                          path="/pics/alpine-view"
                           shadow={true}
                           border={true}
                         />
